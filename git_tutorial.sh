@@ -4,6 +4,15 @@
 # License           : MIT
 # Author            : Xiao-Ning Tank Zhang
 # Email  <tanklovemermaid@gmail.com>
+# Created Time      : Tue Dec 22 14:36:17 2020
+# Last Modified Time: Tue Dec 22 14:36:17 2020
+# Author            : Xiao-Ning Tank Zhang
+# Email  <tanklovemermaid@gmail.com>
+# Copyright (C) 2016-2020 TankMermaid
+# File Name         : git_tutorial.sh
+# License           : MIT
+# Author            : Xiao-Ning Tank Zhang
+# Email  <tanklovemermaid@gmail.com>
 # Created Time      : Tue Dec 22 14:23:03 2020
 # Last Modified Time: Tue Dec 22 14:23:03 2020
 # Author            : Xiao-Ning Tank Zhang
@@ -45,12 +54,12 @@
     # work for global mode repos
     git config --global init.defaultBranch main
     git config pull.rebase false
-	git config --global user.name ”bailab”
-	git config --global user.email ”bailab@gmail.com”
+	git config --global user.name "bailab"
+	git config --global user.email "bailab@gmail.com"
 
     # work only for local mode repos
-    git config user.name ”bailab”
-	git config user.email ”bailab@gmail.com”
+    git config user.name "bailab"
+	git config user.email "bailab@gmail.com"
 
     # check the config
 	git config --ls
