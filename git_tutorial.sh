@@ -6,8 +6,8 @@
 # Created Time: Tue 22 Dec 2020 10:55:57 AM CST
 #########################################################################
 
-## Install git and check version 
-    # git newest version and recompile in Ubuntu 18.04+ 
+## Install git and check version
+    # git newest version and recompile in Ubuntu 18.04+
     git --version # if not 2.28+ then updating due to some change
     mkdir -p $HOME/software
     cd $HOME/software
@@ -16,26 +16,26 @@
     autoconf
     ./configure --prefix=$HOME/software
     make && make install
-    source ~/.bashrc 
+    source ~/.bashrc
     # source ~/.zshrc
     which git
     # /mnt/m1/xiaoning/software/bin/git
-    git --version 
+    git --version
     # git version 2.30.0.rc1
 
 ## Configuration signature and default main branch
     # work for global mode repos
     git config --global init.defaultBranch main
-    git config pull.rebase false 
-    git config --global user.name "bailab" 
+    git config pull.rebase false
+    git config --global user.name "bailab"
     git config --global user.email "bailab@gmail.com"
 
     # work only for local mode repos
-    git config user.name "bailab" 
-git config user.email "bailab@gmail.com" 
+    git config user.name "bailab"
+    git config user.email "bailab@gmail.com"
 
-    # check the config 
-git config --ls
+    # check the config
+    git config --ls
 
 ## Create a repos
 ### git init with bare repository then associated with github repos
@@ -43,7 +43,7 @@ git config --ls
 cd $HOME/git_tutorial
     touch README.md
     echo "# git_test" >> README.md
-git init  #generate .git dir to maintain a tree blob structure Be care with
+    git init  #generate .git dir to maintain a tree blob structure Be care with
     git add README.md
     git commit -m "first commit demo test"
     git branch -M main # -m|-M to rename branch compatible with the name master
@@ -57,7 +57,7 @@ touch demo.py
     # vim demo.py
     git add .
     git commit -m "demo test to submit"
-    git push -u origin main # first time add -u 
+    git push -u origin main # first time add -u
 
     #3 import code from svn or mercurial or TFS project(optional)
     ## refer official docs
@@ -84,7 +84,7 @@ touch demo.py
 
 ## multiple cooperation
 
-### view remote 
+### view remote
     git remote -v
     # if you have no access to push only fetch info
 
@@ -103,20 +103,20 @@ touch demo.py
     cd $HOME/git_tutorial_co
     git clone git@github.com:TankMermaid/git_test.git
 
-    git branch 
+    git branch
     # create local dev and mapping with remote
     git checkout -b dev origin/dev
     git push origin dev
 
-    git pull origin dev 
-    
+    git pull origin dev
+   
     # now switch into dir of git_tutorial and dev branch
     cd $HOME/git_tutorial
     git checkout dev
-    # modifying something then push error 
+    # modifying something then push error
     git branch --set-upstream-to=origin/dev dev
     git pull # if merge conflict manually make corrections
-    git push origin dev 
+    git push origin dev
     # ok it works
 
 
@@ -125,14 +125,14 @@ touch demo.py
     # GUI to operate interactively
 
     # use extension to command-line git hub
-    brew install hub 
+    brew install hub
     hub --version
     git config --global hub.protocol https
-    
+   
     hub issue
     hub fork
-    hub ci0status --verbose 
+    hub ci0status --verbose
     hub pull-request
 
 
-    
+   
