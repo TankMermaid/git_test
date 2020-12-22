@@ -40,7 +40,7 @@
 ## Create a repos
 ### git init with bare repository then associated with github repos
     #1 in github new repos empty
-cd $HOME/git_tutorial
+    cd $HOME/git_tutorial
     touch README.md
     echo "# git_test" >> README.md
     git init  #generate .git dir to maintain a tree blob structure Be care with
@@ -53,7 +53,7 @@ cd $HOME/git_tutorial
     #2 if github new repos with README or License or .gitignore file
     git remote add origin git@github.com:TankMermaid/git_test.git
     git pull origin main --allow-unrelated-histories
-touch demo.py
+    touch demo.py
     # vim demo.py
     git add .
     git commit -m "demo test to submit"
