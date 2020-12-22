@@ -122,6 +122,18 @@
 
 ## Fork-PR mode
     # login another github account to fork this repos
+    touch ~/.ssh/config
+	# Host github
+	# HostName github.com
+    # PreferredAuthentications publickey
+	# IdentityFile ~/.ssh/id_rsa_github
+
+	# Host gitlab
+	# HostName gitlab.mygitlab.com
+    # PreferredAuthentications publickey
+	# IdentityFile ~/.ssh/id_rsa_gitlab
+    
+    # modify .git/config url option with format usr.github.com
     # GUI to operate interactively
 
     # use extension to command-line git hub
