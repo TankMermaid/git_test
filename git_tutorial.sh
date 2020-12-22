@@ -4,6 +4,15 @@
 # License           : MIT
 # Author            : Xiao-Ning Tank Zhang
 # Email  <tanklovemermaid@gmail.com>
+# Created Time      : Tue Dec 22 14:56:51 2020
+# Last Modified Time: Tue Dec 22 14:56:51 2020
+# Author            : Xiao-Ning Tank Zhang
+# Email  <tanklovemermaid@gmail.com>
+# Copyright (C) 2016-2020 TankMermaid
+# File Name         : git_tutorial.sh
+# License           : MIT
+# Author            : Xiao-Ning Tank Zhang
+# Email  <tanklovemermaid@gmail.com>
 # Created Time      : Tue Dec 22 14:49:51 2020
 # Last Modified Time: Tue Dec 22 14:49:51 2020
 # Author            : Xiao-Ning Tank Zhang
@@ -107,9 +116,9 @@
 
 ## Branching and Merging
 ### create branch
-    git branch ## list all branch
-    git checkout test ## create branch named test
-    git branch test ## switch into branch test
+    git branch          ## list all branch
+    git branch test     ## create branch named test
+    git checkout test   ## switch into branch test
     git checkout -b dev ## create and switch one step
 
     
