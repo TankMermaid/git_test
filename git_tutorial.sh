@@ -6,9 +6,9 @@
 # Created Time: Tue 22 Dec 2020 10:55:57 AM CST
 #########################################################################
 
-## Install git and check version
-	# git newest version and recompile in Ubuntu 18.04+
-	git --version # if not 2.28+ then updating due to some change
+## Install git and check version 
+    # git newest version and recompile in Ubuntu 18.04+ 
+    git --version # if not 2.28+ then updating due to some change
     mkdir -p $HOME/software
     cd $HOME/software
     git clone https://github.com/git/git
@@ -26,24 +26,24 @@
 ## Configuration signature and default main branch
     # work for global mode repos
     git config --global init.defaultBranch main
-    git config pull.rebase false
-	git config --global user.name "bailab"
-	git config --global user.email "bailab@gmail.com"
+    git config pull.rebase false 
+    git config --global user.name "bailab" 
+    git config --global user.email "bailab@gmail.com"
 
     # work only for local mode repos
-    git config user.name "bailab"
-	git config user.email "bailab@gmail.com"
+    git config user.name "bailab" 
+git config user.email "bailab@gmail.com" 
 
-    # check the config
-	git config --ls
+    # check the config 
+git config --ls
 
 ## Create a repos
 ### git init with bare repository then associated with github repos
     #1 in github new repos empty
-	cd $HOME/git_tutorial
+cd $HOME/git_tutorial
     touch README.md
     echo "# git_test" >> README.md
-	git init  #generate .git dir to maintain a tree blob structure Be care with
+git init  #generate .git dir to maintain a tree blob structure Be care with
     git add README.md
     git commit -m "first commit demo test"
     git branch -M main # -m|-M to rename branch compatible with the name master
@@ -53,7 +53,7 @@
     #2 if github new repos with README or License or .gitignore file
     git remote add origin git@github.com:TankMermaid/git_test.git
     git pull origin main --allow-unrelated-histories
-	touch demo.py
+touch demo.py
     # vim demo.py
     git add .
     git commit -m "demo test to submit"
@@ -61,7 +61,7 @@
 
     #3 import code from svn or mercurial or TFS project(optional)
     ## refer official docs
-	
+
 ### github new repos then git clone(strongly recommended)
     # github create a repos with init file such as readme,licence and .gitignore
     # then clone into local repos
