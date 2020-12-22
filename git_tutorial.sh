@@ -77,194 +77,40 @@
     git checkout -b dev ## create and switch one step
 
     git checkout main
+    git merge dev
+
+    ## if merge conflict manually correc or git mergetools
+
+
+## multiple cooperation
+
+### view remote 
+    git remote -v
+    # if you have no access to push only fetch info
+
+
+### push branch to remote
+    git push origin dev
+    # new branch and same name with remote branch recommended
+    git checkout -b dev  origin/dev
+    # mapping local and remote branch
+    git branch --set-upstream dev  origin/dev
+
+    # remote push fail, first git pull, if conflict then manually correct it
+
+### simulate multiple colaborating style
+    mkdir -p $HOME/git_tutorial_co
+    cd $HOME/git_tutorial_co
+    git clone git@github.com:TankMermaid/git_test.git
+
+    git branch 
+    # create local dev and mapping with remote
+    git checkout -b dev origin/dev
+    git push origin dev
+
+    git pull origin dev 
 
     
-
-### create in alternative 
-git branch dev
-git checkout dev
-
-### view branches
-git branch
-
-touch readme.txt
-vim readme.txt
-
-git add readme.txt
-git ci -m "dev branch test"
-
-
-### switch to master from dev
-git checkout master
-
-### merge dev into master
-
-git merge dev
-
-## Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。
-
-当然，也不是每次合并都能Fast-forward，我们后面会讲其他方式的合并
-
-
-### 合并完成后，就可以放心地删除dev分支了：
-git branch -d dev 
-
-		Git鼓励大量使用分支：
-
-		查看分支：git branch
-
-		创建分支：git branch <name>
-
-		切换分支：git checkout <name>
-
-		创建+切换分支：git checkout -b <name>
-
-		合并某分支到当前分支：git merge <name>
-
-		删除分支：git branch -d <name>
-
-
-### collison
-
-git checkout -b feature1
-
-nano readme.txt
-git add readme.md
-git commit -m "and simple"
-
-# Your branch is ahead of 'origin/master' by 1 commit.
-  (use "git push" to publish your local commits)
-  Git还会自动提示我们当前master分支比远程的master分支要超前1个提交
-
-vim readme.md
-git add readme.md
-git commit -m "& simple"
-
-
-这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突
-
-git merge feature1 
-
-Auto-merging readme.md
-CONFLICT (content): Merge conflict in readme.md
-Automatic merge failed; fix conflicts and then commit the result.
-
-Git告诉我们，readme.txt文件存在冲突，必须手动解决冲突后再提交
-
-
-		Your branch is ahead of 'origin/master' by 2 commits.
-		  (use "git push" to publish your local commits)
-		You have unmerged paths.
-		  (fix conflicts and run "git commit")
-
-		Unmerged paths:
-		  (use "git add <file>..." to mark resolution)
-
-			both modified:   readme.md
-
-git add readme.md 
-git commit -m "conflict fixed"
-
-git lg
-
-git br -d feature1 
-
-### not fast-forward method
-git checkout -b dev
-git merge --no-ff -m "merge with no-ff" dev
-
-Merge made by the 'recursive' strategy.
-
-
-git lg 
-
-git status 
-git stash
-
-
-#### bug branch and stash 
-修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除
-
-当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场
-
-
-git add .
-
-before we commit,we can 
-
-git stash 
-Saved working directory and index state WIP on dev: 18aba56 little modified
-HEAD is now at 18aba56 little modified
-
-git status
-
-首先确定要在哪个分支上修复bug，假定需要在master分支上修复，就从master创建临时分支：
-git checkout master
-git checkout -b issue-101
-
-vim issue101.py
-git add issue101.py
-git commit -m "fix bug 101"
-
-git checkout master
-git merge --no-ff -m "merged bug fix 101" issue-101
-git br -d issue-101 
-
-
-git checkout dev
-git status
-
-git stash list
-stash@{0}: WIP on dev: 18aba56 little modified
-一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
-
-另一种方式是用git stash pop，恢复的同时把stash内容也删了：
-
- git stash apply
- git stash drop 
-
-git stash pop
- git stash list
-git stash apply stash@{0}
-
-
-
-#### feature branch
-git checkout -b feature-vulcan
-
-vim vulcan.py
-git add vulcan.py
-
-git status
-
-开发一个新feature，最好新建一个分支；
-
-如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除
-
-### multiple cooperation
-
-#### view remote 
-git remote -v
-
-当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin
-上面显示了可以抓取和推送的origin的地址。如果没有推送权限，就看不到push的地址
-origin	https://github.com/TankMermaid/spike-in.git(fetch)
-origin	https://github.com/TankMermaid/spike-in.git(push)
-
-#### push branch
-
-查看远程库信息，使用git remote -v；
-
-本地新建的分支如果不推送到远程，对其他人就是不可见的；
-
-从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
-
-在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
-
-建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
-
-从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
-
 ##### rebase 
 
 在上一节我们看到了，多人在同一个分支上协作时，很容易出现冲突。即使没有冲突，后push的童鞋不得不先pull，在本地合并，然后才能push成功
